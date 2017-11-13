@@ -4,8 +4,8 @@ Donald wants to educate his kids about investing in cryptocurrencies. To accompl
 
 # Installation
 
- > npm install
+ npm install
 
 
- > $ chmod 755 gencerts.sh
- > $ ./gencerts.sh
+ $ chmod 755 gencerts.sh
+ $ ./gencerts.sh
