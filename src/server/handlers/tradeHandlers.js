@@ -7,8 +7,8 @@ const hasSufficientFunds = (amount, price, funds) => {
   return amount * price <= funds;
 };
 
-const hasSufficientAssets = (amount, price, assets) => {
-  return assets >= amount * price;
+const hasSufficientAssets = (amount, assets) => {
+  return assets >= amount;
 };
 
 const handleBuyMarket = (req, res) => {
@@ -66,8 +66,8 @@ const handleSellMarket = (req, res) => {
     const metric = asset === 'BTC' ? 'USD' : 'BTC';
     const price = store.getPriceVolume(asset, metric).value.price;
     const txdate = new Date();
-    balanceOps.getBalance(req.params.username, metric)
-      .map(funds => hasSufficientAssets(req.body.amount, price, funds))
+    balanceOps.getBalance(req.params.username, asset)
+      .map(funds => hasSufficientAssets(req.body.amount, funds))
       .chain(sufficient => sufficient ? balanceOps.trade(user, 'SELL', asset, req.body.amount, price) : F.reject(new Error('Insufficient Assets')))
       .done((err, data) => {
         if (err) {
