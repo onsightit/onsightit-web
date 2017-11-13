@@ -65,6 +65,7 @@ const handleSellMarket = (req, res) => {
     const asset = req.body.asset.split('-')[0];
     const metric = asset === 'BTC' ? 'USD' : 'BTC';
     const price = store.getPriceVolume(asset, metric).value.price;
+    const txdate = new Date();
     balanceOps.getBalance(req.params.username, metric)
       .map(funds => hasSufficientAssets(req.body.amount, price, funds))
       .chain(sufficient => sufficient ? balanceOps.trade(user, 'SELL', asset, req.body.amount, price) : F.reject(new Error('Insufficient Assets')))
@@ -79,7 +80,21 @@ const handleSellMarket = (req, res) => {
               res.status(500).send('Internal Server Error');
           }
         } else {
-          res.status(200).send('OK');
+          historyOps.setHistory(user, txdate, 'SELL', asset, metric, req.body.amount, price)
+            .done((err, data) => {
+              if (err) {
+                console.error(err);
+                switch (err.message) {
+                  case 'Insufficient Funds':
+                    res.status(403).send('Insufficient Funds');
+                    break;
+                  default:
+                    res.status(500).send('Internal Server Error');
+                }
+              } else {
+                res.status(200).send('OK');
+              }
+            });
         }
       });
   }
