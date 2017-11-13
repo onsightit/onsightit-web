@@ -7,8 +7,8 @@ const hasSufficientFunds = (amount, price, funds) => {
   return amount * price <= funds;
 };
 
-const hasSufficientAssets = (amount, assets) => {
-  return assets >= amount;
+const hasSufficientAssets = (amount, price, assets) => {
+  return assets >= amount * price;
 };
 
 const handleBuyMarket = (req, res) => {
