@@ -1,0 +1,13 @@
+export const RESET = 'RESET';
+export const SET_USERNAME = 'SET_USERNAME';
+export const SET_PASSWORD = 'SET_PASSWORD';
+export const SET_CONFIRMPASS = 'SET_CONFIRMPASS';
+export const SET_INVITECODE = 'SET_INVITECODE';
+export const SET_ERROR = 'SET_ERROR';
+export const SET_ADMIN = 'SET_ADMIN';
+export const SET_INVITES = 'SET_INVITES';
+export const SET_PRICES = 'SET_PRICES';
+export const SET_BALANCES = 'SET_BALANCES';
+export const SET_VALUE_USD = 'SET_VALUE_USD';
+export const SET_VALUE_BTC = 'SET_VALUE_BTC';
+export const SET_HISTORY = 'SET_HISTORY';
