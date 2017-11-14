@@ -230,6 +230,7 @@ export function sendTrade (op, opmod, asset, amount, limit) {
         dispatch(setError(err.message));
       } else {
         dispatch(getBalances());
+        dispatch(getHistory());
       }
     });
   };
