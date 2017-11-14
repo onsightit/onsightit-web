@@ -13,15 +13,16 @@ class History extends React.Component {
   }
   render () {
     const history = this.props.history;
-    console.error(JSON.stringify(history));
     return (
       <div>
         <h3>History</h3>
-        {
-          $.map(history, function (i, idx) {
-            return <h6><b>{idx + 1}</b> TxDate: {i.txdate}, Op: {i.op}, Asset: {i.asset}, Metric: {i.metric}, Amount: {i.amount}, Price: {i.price}</h6>;
-          })
-        }
+        <ul>
+          {
+            $.map(history, function (i, idx) {
+              return <li><h6><b>TxDate</b>: {i.txdate}, <b>Op</b>: {i.op}, <b>Asset</b>: {i.asset}, <b>Metric</b>: {i.metric}, <b>Amount</b>: {i.amount}, <b>Price</b>: {i.price}</h6></li>;
+            })
+          }
+        </ul>
       </div>
     );
   }

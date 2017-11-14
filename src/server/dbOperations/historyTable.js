@@ -4,16 +4,7 @@ const getHistory = user => {
   const safeUsername = fmysql.escape(user);
   const query = `SELECT txdate, op, asset, metric, amount, price FROM history WHERE username = ${safeUsername} ORDER BY txdate DESC;`;
   return fmysql.statelessQuery(query)
-    .chain(S.compose(S.maybeToFuture(new Error('User does not Exist')), S.head))
-    .map(S.compose(JSON.parse, JSON.stringify))
-    .map(row => ([{
-      txdate: row.txdate,
-      op: row.op,
-      asset: row.asset,
-      metric: row.metric,
-      amount: row.amount,
-      price: row.price
-    }]), []);
+    .map(S.compose(JSON.parse, JSON.stringify));
 };
 
 const setHistory = (user, txdate, op, asset, metric, amount, price) => {

@@ -41,19 +41,15 @@ class Trade extends React.Component {
         <h3>Trade</h3>
         <form onSubmit={this.sendTrade}>
           <strong>Operation</strong><br />
-          <input name='tradeOperation' type='radio' value='BUY' checked={this.state.tradeOperation === 'BUY'} onChange={this.handleInputChange} />
-          <text> BUY</text><br />
-          <input name='tradeOperation' type='radio' value='SELL' checked={this.state.tradeOperation === 'SELL'} onChange={this.handleInputChange} />
-          <text> SELL</text><br /><br />
+          <input name='tradeOperation' type='radio' value='BUY' checked={this.state.tradeOperation === 'BUY'} onChange={this.handleInputChange} /> BUY<br />
+          <input name='tradeOperation' type='radio' value='SELL' checked={this.state.tradeOperation === 'SELL'} onChange={this.handleInputChange} /> SELL<br />
+          <br />
           <strong>Asset</strong><br />
-          <input name='asset' type='radio' value='BTC-USD' checked={this.state.asset === 'BTC-USD'} onChange={this.handleInputChange} />
-          <text> BTC-USD</text><br />
-          <input name='asset' type='radio' value='ETH-BTC' checked={this.state.asset === 'ETH-BTC'} onChange={this.handleInputChange} />
-          <text> ETH-BTC</text><br />
-          <input name='asset' type='radio' value='LTC-BTC' checked={this.state.asset === 'LTC-BTC'} onChange={this.handleInputChange} />
-          <text> LTC-BTC</text><br />
-          <input name='asset' type='radio' value='DOGE-BTC' checked={this.state.asset === 'DOGE-BTC'} onChange={this.handleInputChange} />
-          <text> DOGE-BTC</text><br /><br />
+          <input name='asset' type='radio' value='BTC-USD' checked={this.state.asset === 'BTC-USD'} onChange={this.handleInputChange} /> BTC-USD<br />
+          <input name='asset' type='radio' value='ETH-BTC' checked={this.state.asset === 'ETH-BTC'} onChange={this.handleInputChange} /> ETH-BTC<br />
+          <input name='asset' type='radio' value='LTC-BTC' checked={this.state.asset === 'LTC-BTC'} onChange={this.handleInputChange} /> LTC-BTC<br />
+          <input name='asset' type='radio' value='DOGE-BTC' checked={this.state.asset === 'DOGE-BTC'} onChange={this.handleInputChange} /> DOGE-BTC<br />
+          <br />
           <strong>Amount</strong><br />
           <input name='amount' type='number' step='0.0001' value={this.state.amount} min='0' onChange={this.handleInputChange} />
           <input className='btn btn-primary submit-btn' type='submit' />
