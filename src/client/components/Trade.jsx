@@ -55,7 +55,7 @@ class Trade extends React.Component {
           <input name='asset' type='radio' value='DOGE-BTC' checked={this.state.asset === 'DOGE-BTC'} onChange={this.handleInputChange} />
           <text> DOGE-BTC</text><br /><br />
           <strong>Amount</strong><br />
-          <input name='amount' type='number' value={this.state.amount} min='0' onChange={this.handleInputChange} />
+          <input name='amount' type='number' step='0.0001' value={this.state.amount} min='0' onChange={this.handleInputChange} />
           <input className='btn btn-primary submit-btn' type='submit' />
         </form>
       </div>

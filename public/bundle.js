@@ -40701,7 +40701,7 @@ var Trade = function (_React$Component) {
             'Amount'
           ),
           _react2.default.createElement('br', null),
-          _react2.default.createElement('input', { name: 'amount', type: 'number', value: this.state.amount, min: '0', onChange: this.handleInputChange }),
+          _react2.default.createElement('input', { name: 'amount', type: 'number', step: '0.0001', value: this.state.amount, min: '0', onChange: this.handleInputChange }),
           _react2.default.createElement('input', { className: 'btn btn-primary submit-btn', type: 'submit' })
         )
       );
