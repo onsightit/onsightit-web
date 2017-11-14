@@ -18,17 +18,17 @@ export default class App extends React.Component {
           <Route
             exact
             path='/home'
-            component={HomePage}
+            component={(props) => window.sessionStorage.getItem('jwt') ? <HomePage /> : <Redirect to='/login' />}
           />
           <Route
             exact
             path='/login'
-            component={LoginPage}
+            component={(props) => window.sessionStorage.getItem('jwt') ? <Redirect to='/home' /> : <LoginPage />}
           />
           <Route
             exact
             path='/register'
-            component={props => <LoginPage isRegister />}
+            component={(props) => window.sessionStorage.getItem('jwt') ? <Redirect to='/home' /> : props => <LoginPage isRegister />}
           />
         </div>
       </Provider>
