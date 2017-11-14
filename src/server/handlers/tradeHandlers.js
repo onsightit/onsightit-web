@@ -4,11 +4,11 @@ const historyOps = require('../dbOperations/historyTable.js');
 const { S, F } = require('../../utils/sanctuaryEnv.js');
 
 const hasSufficientFunds = (amount, price, funds) => {
-  return amount * price <= funds;
+  return amount && amount * price <= funds;
 };
 
 const hasSufficientAssets = (amount, assets) => {
-  return assets >= amount;
+  return amount && assets >= amount;
 };
 
 const handleBuyMarket = (req, res) => {
@@ -19,12 +19,13 @@ const handleBuyMarket = (req, res) => {
     const user = req.params.username;
     const asset = req.body.asset.split('-')[0];
     const metric = asset === 'BTC' ? 'USD' : 'BTC';
+    const amount = req.body.amount;
     const price = store.getPriceVolume(asset, metric).value.price;
     const txdate = new Date();
     console.log(price);
     balanceOps.getBalance(req.params.username, metric)
-      .map(funds => { console.log(funds, req.body.amount * price); return hasSufficientFunds(req.body.amount, price, funds); })
-      .chain(sufficient => sufficient ? balanceOps.trade(user, 'BUY', asset, req.body.amount, price) : F.reject(new Error('Insufficient Funds')))
+      .map(funds => { console.log(funds, amount * price); return hasSufficientFunds(amount, price, funds); })
+      .chain(sufficient => sufficient ? balanceOps.trade(user, 'BUY', asset, amount, price) : F.reject(new Error('Insufficient Funds')))
       .done((err, data) => {
         if (err) {
           console.error(err);
@@ -36,7 +37,7 @@ const handleBuyMarket = (req, res) => {
               res.status(500).send('Internal Server Error');
           }
         } else {
-          historyOps.setHistory(user, txdate, 'BUY', asset, metric, req.body.amount, price)
+          historyOps.setHistory(user, txdate, 'BUY', asset, metric, amount, price)
             .done((err, data) => {
               if (err) {
                 console.error(err);
