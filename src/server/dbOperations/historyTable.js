@@ -2,7 +2,7 @@ const fmysql = require('../../utils/fmysql.js');
 const { S } = require('../../utils/sanctuaryEnv.js');
 const getHistory = user => {
   const safeUsername = fmysql.escape(user);
-  const query = `SELECT txdate, op, asset, metric, amount, price FROM history WHERE username = ${safeUsername} ORDER BY txdate DESC;`;
+  const query = `SELECT txdate, op, asset, metric, amount, price FROM history WHERE username = ${safeUsername} ORDER BY txdate DESC LIMIT 10;`;
   return fmysql.statelessQuery(query)
     .map(S.compose(JSON.parse, JSON.stringify));
 };
