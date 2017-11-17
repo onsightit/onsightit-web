@@ -8,3 +8,5 @@ server.csr
 server.crt
 pubkey.pem
 yarn.lock
+
+start.sh
