@@ -1,6 +1,6 @@
 const fmysql = require('../../utils/fmysql.js');
 const { S, F } = require('../../utils/sanctuaryEnv.js');
-const saltPass = pass => pass + 'BUDWEISER';
+const saltPass = pass => pass + 'LeftHand';
 const getUserPassword = (user, pass) => {
   const safeUsername = fmysql.escape(user);
   const safePassword = fmysql.escape(saltPass(pass));

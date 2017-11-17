@@ -4,7 +4,7 @@ const dbparams = {
   host: 'localhost',
   user: process.env.MYSQLUSER,
   password: process.env.MYSQLPASS,
-  database: 'saltproject',
+  database: 'onsightit-web',
   multipleStatements: true
 };
 
