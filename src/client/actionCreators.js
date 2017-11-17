@@ -110,7 +110,7 @@ export function sendLogout (router) {
     window.sessionStorage.removeItem('username');
     window.sessionStorage.removeItem('admin');
     window.sessionStorage.removeItem('jwt');
-    router.history.push('/');
+    router.history.push('/login');
   };
 }
 

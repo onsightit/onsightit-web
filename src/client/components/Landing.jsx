@@ -14,7 +14,7 @@ class Landing extends React.Component {
     this.context.router = context.router;
     this.handleLogout = this.handleLogout.bind(this);
   }
-  handleLogout (event) {
+  handleLogin (event) {
     event.preventDefault();
     this.props.sendLogout(this.context.router);
   }
@@ -22,7 +22,7 @@ class Landing extends React.Component {
     return (
       <div className='app'>
         <h1>OnsightIT: Virtual Currency Exchange Prices</h1>
-        <button className='btn btn-primary login-btn' onClick={this.handleLogout}>Logout</button>
+        <button className='btn btn-primary login-btn' onClick={this.handleLogin}>Login</button>
         <div className='details'>
           <Prices />
         </div>
