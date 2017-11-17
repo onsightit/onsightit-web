@@ -24,10 +24,10 @@ class Prices extends React.Component {
     return (
       <div>
         <h3>Prices</h3>
-        <h6>BTC: {prices ? prices.BTC.USD.price || 'n/a' : '...'} USD</h6>
-        <h6>ETH: {prices ? prices.ETH.BTC.price || 'n/a' : '...'} BTC</h6>
-        <h6>LTC: {prices ? prices.LTC.BTC.price || 'n/a' : '...'} BTC</h6>
-        <h6>DOGE: {prices ? prices.DOGE.BTC.price || 'n/a' : '...'} BTC</h6>
+        <h6>BTC: {prices && typeof prices.BTC.USD.price !== 'undefined' ? prices.BTC.USD.price || 'n/a' : '...'} USD</h6>
+        <h6>ETH: {prices && typeof prices.ETH.BTC.price !== 'undefined' ? prices.ETH.BTC.price || 'n/a' : '...'} BTC</h6>
+        <h6>LTC: {prices && typeof prices.LTC.BTC.price !== 'undefined' ? prices.LTC.BTC.price || 'n/a' : '...'} BTC</h6>
+        <h6>DOGE: {prices && typeof prices.DOGE.BTC.price !== 'undefined' ? prices.DOGE.BTC.price || 'n/a' : '...'} BTC</h6>
       </div>
     );
   }
