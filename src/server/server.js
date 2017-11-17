@@ -50,7 +50,7 @@ app.use(bodyParser.json());
 app.use(expressJwt({
   secret: publicKey,
   credentialsRequired: true
-}).unless({ path: ['/', '/api/price', '/api/prices', '/api/login', '/api/register'] }));
+}).unless({ path: ['/', '/landing', '/api/price', '/api/prices', '/api/login', '/api/register'] }));
 app.use((err, req, res, next) => {
   // console.error(req.get('Authorization'));
   if (err.name === 'UnauthorizedError') {
