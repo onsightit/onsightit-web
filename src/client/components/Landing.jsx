@@ -12,7 +12,7 @@ class Landing extends React.Component {
   constructor (props, context) {
     super(props, context);
     this.context.router = context.router;
-    this.handleLogout = this.handleLogout.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
   }
   handleLogin (event) {
     event.preventDefault();
