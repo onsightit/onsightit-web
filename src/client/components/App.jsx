@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import Landing from './Landing.jsx';
 import Home from './Home.jsx';
 import Login from './Login.jsx';
 import store from '../store.js';
