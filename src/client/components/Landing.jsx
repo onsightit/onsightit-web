@@ -21,7 +21,7 @@ class Landing extends React.Component {
   render () {
     return (
       <div className='app'>
-        <h1>OnsightIT: Virtual Currency Exchange Prices</h1>
+        <h1>OnsightIT - Virtual Currency Exchange Project</h1>
         <button className='btn btn-primary login-btn' onClick={this.handleLogin}>Login</button>
         <div className='details'>
           <Prices />
