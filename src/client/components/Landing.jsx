@@ -19,7 +19,6 @@ class Landing extends React.Component {
     this.props.sendLogin(this.context.router);
   }
   render () {
-    var username = window.sessionStorage.getItem('username');
     return (
       <div className='app'>
         <h1>OnsightIT: Virtual Currency Exchange Prices</h1>
@@ -33,7 +32,7 @@ class Landing extends React.Component {
 }
 
 Landing.propTypes = {
-  sendLogout: PropTypes.func
+  sendLogin: PropTypes.func
 };
 
 Landing.contextTypes = {
