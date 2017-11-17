@@ -13,7 +13,7 @@ import {
   sendLogout
 } from '../actionCreators.js';
 
-class HomePage extends React.Component {
+class Home extends React.Component {
   constructor (props, context) {
     super(props, context);
     this.context.router = context.router;
@@ -27,7 +27,7 @@ class HomePage extends React.Component {
     var username = window.sessionStorage.getItem('username');
     return (
       <div className='app'>
-        <h1>Welcome to the Virtual Currency Exchange, {username}</h1>
+        <h1>OnsightIT Virtual Currency Exchange</h1>
         <button className='btn btn-primary logout-btn' onClick={this.handleLogout}>Logout</button>
         <div className='details'>
           <Invites />
@@ -49,11 +49,11 @@ class HomePage extends React.Component {
   }
 }
 
-HomePage.propTypes = {
+Home.propTypes = {
   sendLogout: PropTypes.func
 };
 
-HomePage.contextTypes = {
+Home.contextTypes = {
   router: PropTypes.object.isRequired
 };
 
@@ -72,4 +72,4 @@ const mapDispatchToProps = dispatch => {
     dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

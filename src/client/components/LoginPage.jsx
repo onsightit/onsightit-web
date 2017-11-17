@@ -12,7 +12,7 @@ import {
   sendLogin
 } from '../actionCreators.js';
 
-class LoginPage extends React.Component {
+class Login extends React.Component {
   constructor (props, context) {
     super(props, context);
     this.context.router = context.router;
@@ -82,7 +82,7 @@ class LoginPage extends React.Component {
   }
 }
 
-LoginPage.propTypes = {
+Login.propTypes = {
   username: PropTypes.string,
   password: PropTypes.string,
   confirmpass: PropTypes.string,
@@ -97,7 +97,7 @@ LoginPage.propTypes = {
   sendLogin: PropTypes.func
 };
 
-LoginPage.contextTypes = {
+Login.contextTypes = {
   router: PropTypes.object.isRequired
 };
 
@@ -124,4 +124,4 @@ const mapDispatchToProps = dispatch => {
     dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
