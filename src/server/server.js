@@ -26,7 +26,8 @@ var certificate = fs.readFileSync('server.crt', 'utf-8');
 var publicKey = fs.readFileSync('pubkey.pem', 'utf-8');
 const requireHTTPS = (req, res, next) => {
   if (!req.secure) {
-    return res.redirect('https://' + req.get('host') + req.url);
+    // TODO: need an SSL cert for production.
+    //return res.redirect('https://' + req.get('host') + req.url);
   }
   next();
 };
