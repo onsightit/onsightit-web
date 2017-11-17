@@ -5,24 +5,24 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Prices from './Prices.jsx';
 import {
-  sendLogin
+  sendLogout
 } from '../actionCreators.js';
 
 class Landing extends React.Component {
   constructor (props, context) {
     super(props, context);
     this.context.router = context.router;
-    this.handleLogin = this.handleLogin.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
   }
-  handleLogin (event) {
+  handleLogout (event) {
     event.preventDefault();
-    this.props.sendLogin(this.context.router);
+    this.props.sendLogout(this.context.router);
   }
   render () {
     return (
       <div className='app'>
         <h1>OnsightIT: Virtual Currency Exchange Prices</h1>
-        <button className='btn btn-primary login-btn' onClick={this.handleLogin}>Login</button>
+        <button className='btn btn-primary login-btn' onClick={this.handleLogout}>Logout</button>
         <div className='details'>
           <Prices />
         </div>
@@ -32,7 +32,7 @@ class Landing extends React.Component {
 }
 
 Landing.propTypes = {
-  sendLogin: PropTypes.func
+  sendLogout: PropTypes.func
 };
 
 Landing.contextTypes = {
@@ -48,7 +48,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
-      sendLogin
+      sendLogout
     },
     dispatch);
 };

@@ -1,5 +1,5 @@
 {
-  "name": "salt-project",
+  "name": "onsightit-web",
   "version": "1.0.1",
   "description": "This is a developer interview/test for SaltLending.com.",
   "main": "index.js",
