@@ -13,7 +13,7 @@ export default class App extends React.Component {
           <Route
             exact
             path='/'
-            component={(props) => window.sessionStorage.getItem('jwt') ? <Redirect to='/home' /> : <Redirect to='/login' />}
+            component={(props) => window.sessionStorage.getItem('jwt') ? <Redirect to='/home' /> : <Landing />}
           />
           <Route
             exact

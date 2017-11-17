@@ -123,5 +123,7 @@ app.post('/api/invite', apiHandlers.handleInvite);
 const credentials = { key: privateKey, cert: certificate };
 const httpServer = http.createServer(app);
 const httpsServer = https.createServer(credentials, app);
-httpServer.listen(8080);
-httpsServer.listen(8443);
+
+// TODO: parameterize these with settings.json
+httpServer.listen(8181);
+httpsServer.listen(8383);
